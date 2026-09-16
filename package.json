@@ -1,0 +1,1 @@
+{"name":"file-format-microscope","private":true,"scripts":{"test":"node test/parsers.test.js","fixtures":"node test/make-fixtures.js"}}

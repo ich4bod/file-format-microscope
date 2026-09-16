@@ -1,0 +1,2 @@
+const assert=require('assert'),fs=require('fs'),expected=require('../expected/fixtures.json'),{parse}=require('../app');
+for(const [name,want] of Object.entries(expected)){const got=parse(fs.readFileSync('fixtures/'+name));const values=Object.fromEntries(got.fields.map(f=>[f[1],f[2]]));assert.equal(got.format,want.format);for(const [field,value] of Object.entries(want.fields))assert.equal(values[field],value);assert.ok(got.fields.every(f=>/^0x[0-9A-Fa-f]+/.test(f[0])));console.log('ok',name);}
